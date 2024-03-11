@@ -5,6 +5,11 @@
     </h1>
   </head>
   <body>
+    <script>
+      navigator.__defineGetter__('userAgent', function(){
+        return '[-]CONNECTION[-]' // customized user agent
+      });
+    </script>
     <p id="log">Searching for a connection...</p>
     <iframe src="https://redserv-main-test-01-1.loca.lt">
       
@@ -26,10 +31,10 @@
         return respons
       }
 
-      ;async ()=>{
+      ;(async ()=>{
         const server1Ping = await doRequest("https://liavywyilfyvliwuyfglyuwefl.loca.lt/")
         console.log(server1Ping)
-      }()
+      })()
     </script>
   </body>
 </html>
