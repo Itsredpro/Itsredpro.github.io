@@ -5,15 +5,8 @@
     </h1>
   </head>
   <body>
-    <script>
-      navigator.__defineGetter__('userAgent', function(){
-        return '[-]CONNECTION[-]' // customized user agent
-      });
-    </script>
+    
     <p id="log">Searching for a connection...</p>
-    <iframe src="https://redserv-main-test-01-1.loca.lt">
-      
-    </iframe>
 
     <script>
       const logElement = document.getElementById("log")
@@ -22,7 +15,7 @@
         let headers = new Headers({
             "Accept"       : "application/json",
             "Content-Type" : "application/json",
-            "User-Agent"   : "[-]CONNECTION[-]"
+            "Bypass-Tunnel-Reminder": "true"
         });
         const respons = await fetch(url, {
             method  : 'GET', 
@@ -32,8 +25,9 @@
       }
 
       ;(async ()=>{
-        const server1Ping = await doRequest("https://liavywyilfyvliwuyfglyuwefl.loca.lt/")
+        const server1Ping = await doRequest("https://redserv-main-test-01-1.loca.lt")
         console.log(server1Ping)
+        document.querySelector('html').innerHTML = server1Ping.html()
       })()
     </script>
   </body>
