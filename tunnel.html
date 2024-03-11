@@ -1,10 +1,33 @@
 <html>
   <head>
     <h1>
-      -<Direct tunnel>-
+      Direct tunnel tech
     </h1>
   </head>
   <body>
-    <p>Searching for a connection...</p>
+    <p id="log">Searching for a connection...</p>
+
+
+    <script>
+      const logElement = document.getElementById("log")
+
+      async function doRequest(url){
+        let headers = new Headers({
+            "Accept"       : "application/json",
+            "Content-Type" : "application/json",
+            "User-Agent"   : "[-]CONNECTION[-]"
+        });
+        const respons = await fetch(url, {
+            method  : 'GET', 
+            headers : headers 
+        })
+        return respons
+      }
+
+      ;async ()=>{
+        const server1Ping = await doRequest("https://liavywyilfyvliwuyfglyuwefl.loca.lt/")
+        console.log(server1Ping)
+      }()
+    </script>
   </body>
 </html>
