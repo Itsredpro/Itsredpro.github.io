@@ -1,12 +1,12 @@
 <html>
   <head>
     <h1>
-      Direct tunnel tech
+      Local server backend
     </h1>
   </head>
   <body>
     
-    <p id="log">Searching for a connection...</p>
+    <p id="log">Searching for a connection... Please be patient. This may take a while.</p>
 
     <script>
       async function doRequest(url){
@@ -21,6 +21,10 @@
         })
         return respons
       }
+
+      setTimeout(()=>{
+        document.getElementById("log").innerText = "Cannot connect to the backend... Maybe the server is offline?"
+      },5000)
 
       ;(async ()=>{
         const server1Ping = await (await doRequest("https://redserv-main-test-01-1.loca.lt")).text()
