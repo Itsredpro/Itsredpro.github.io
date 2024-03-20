@@ -30,7 +30,7 @@
           var decrypt = new JSEncrypt();
           decrypt.setPrivateKey(rsaPriv);
           var uncrypted = decrypt.decrypt(encryptedData);
-          if (uncrypted.startsWith(startMatch)){
+          if (uncrypted != false)){
             alert("Decryption successful, loading page...")
             
             document.querySelector('html').innerHTML = uncrypted
